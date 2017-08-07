@@ -1,11 +1,52 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<nav>
-  <a routerLink="/home" routerLinkActive="active">Home</a>
-  <form class="search-container">
-    <input type="text" id="search-bar" placeholder="What can I help you with today?">
-    <a href="#"><img class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
+<!--Header: Contains Menu and Search Bar-->
+  <header>
+  <ul>
+    <li id="logo">
+  <a style="height=50px;" routerLink="/home" routerLinkActive="active"><img src="http://www.clearscale.com/images/docker.png"></a>
+</li>
+<li id="search-bar-container">
+  <form>
+    <input type="text" id="search-bar" placeholder="What can I help you trade today?">
   </form>
-  <a routerLink="/login" routerLinkActive="active">Login</a>
-  <a routerLink="/developers" routerLinkActive="active">Developers</a>
+</li>
+</ul>
+</header>
+
+<nav ng-if="loggedOut" id = "navbar">
+  <ul>
+    <li>
+      <a routerLink="/login" routerLinkActive="active">Login</a>
+    </li>
+  </ul>
 </nav>
-<router-outlet></router-outlet>
+<nav ng-if="loggedIn" id = "navbar">
+  <ul>
+    <li>
+      <a routerLink="/profile" routerLinkActive="active">Juan</a>
+    </li>
+    <li>
+      MyAccount
+    </li>
+    <li>
+      Offers
+    </li>
+    <li>
+
+    </li>
+  </ul>
+</nav>
+
+<!-- *********** Canvas: Contains Components ************* -->
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+<!-- ***************************************************** -->
+
+<!-- Footer: Terms of Service and other Info-->
+<footer style="background-color:orange;">
+  <p>Posted by: Hege Refsnes</p>
+  <p>Contact information: <a href="mailto:someone@example.com">
+  someone@example.com</a>.</p>
+  <a routerLink="/developers" routerLinkActive="active">Developers</a>
+</footer>
