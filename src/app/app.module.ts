@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule} from './app-routing/app-routing.module'
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -10,6 +11,7 @@ import { DevelopersComponent } from './developers/developers.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProductUploadComponent } from './product-upload/product-upload.component';
+
 
 @NgModule({
   declarations: [
@@ -23,8 +25,9 @@ import { ProductUploadComponent } from './product-upload/product-upload.componen
     ProductUploadComponent
   ],
   imports: [
+    HttpModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
