@@ -9,7 +9,7 @@ import {Http, Response} from '@angular/http';
 export class AppComponent{
   title = 'app';
 
-  path = 'https://cors-anywhere.herokuapp.com/http://tradeship-api.herokuapp.com/';
+  path = 'http://tradeship-api.herokuapp.com/';
 
   constructor (private http: Http) {}
 
