@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { OnInit,Component } from '@angular/core';
 import {Http, Response} from '@angular/http';
+import {Router,ActivatedRoute, Params} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,15 +13,14 @@ export class AppComponent{
   path = 'https://tradeship-api.herokuapp.com/auth/facebook';
 
 
-  constructor (private http: Http) {}
+  constructor (private activatedRoute:ActivatedRoute) {}
 
-  TestMethod() {
-    this.http.get(this.path)
-    .subscribe (
-      (res: Response) => {
-        console.log(res)
-      }
-    )
+  ngOnInit(){
+    this.activatedRoute.queryParams.subscribe((params)=>{
+      console.log(params);
+      let accessToken = params['accessToken'];
+      console.log(accessToken);
+    })
   }
 
 

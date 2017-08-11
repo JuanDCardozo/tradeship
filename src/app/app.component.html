@@ -22,7 +22,7 @@
 <nav ng-if="loggedIn" id = "navbar">
   <ul>
     <li>
-      <a routerLink="/profile" routerLinkActive="active">Juan</a>
+      <a routerLink="/profile" routerLinkActive="active">{{user.name}}</a>
     </li>
     <li>
       MyAccount
@@ -30,11 +30,7 @@
     <li>
       Offers
     </li>
-    <li>
 
-      <a href="http://localhost:8080/auth/facebook/"><button>Test</button></a>
-
-    </li>
   </ul>
 </nav>
 
