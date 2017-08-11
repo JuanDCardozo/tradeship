@@ -10,16 +10,13 @@ import {Router,ActivatedRoute, Params} from '@angular/router';
 export class AppComponent{
   title = 'app';
 
-  path = 'https://tradeship-api.herokuapp.com/auth/facebook';
-
 
   constructor (private activatedRoute:ActivatedRoute) {}
 
   ngOnInit(){
     this.activatedRoute.queryParams.subscribe((params)=>{
-      console.log(params);
       let accessToken = params['accessToken'];
-      console.log(accessToken);
+      console.log('accessToken: '+accessToken);
     })
   }
 
