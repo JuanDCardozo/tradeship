@@ -11,6 +11,7 @@ export class AppComponent{
 
   path = 'https://tradeship-api.herokuapp.com/auth/facebook';
 
+
   constructor (private http: Http) {}
 
   TestMethod() {
