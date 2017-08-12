@@ -13,19 +13,33 @@ export class AppComponent{
   constructor (private activatedRoute:ActivatedRoute,
     private tokenService: TokenService) {}
 
-  loggedIn = this.tokenService.isLoggedIn();
+  loggedIn:boolean;
 
   ngOnInit(){
+    //Get token from query string
     this.activatedRoute.queryParams.subscribe((params)=>{
       let accessToken = params['accessToken'];
       console.log('accessToken: '+ accessToken);
       //Store the token
       this.tokenService.storeToke(accessToken);
-      let testToken = this.tokenService.retrieveToke();
-      console.log('testToken: '+ testToken);
+      //DEBUG
+      // let testToken = this.tokenService.retrieveToke();
+      //Check if loggedIn
+      this.loggedIn = this.tokenService.isLoggedIn();
+      //DEBUG
+      // console.log('testToken: '+ testToken);
+      console.log('LoggedIn: '+ this.loggedIn);
     })
   }
 
-
+  Logout(){
+    console.log('Logging out');
+    try {
+      this.tokenService.deleteToke();
+    }
+    catch(err) {
+      console.log(err)
+    }
+  }
 
 }

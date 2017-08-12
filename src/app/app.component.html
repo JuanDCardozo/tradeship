@@ -13,16 +13,19 @@
 </header>
 
 <nav id="navbar">
-  <div *ngIf="loggedIn; then login else logout"></div>
-      <ng-template #login>
+  <div *ngIf="loggedIn; then userLoggedIn else userLoggedOut"></div>
+      <ng-template #userLoggedOut>
         <ul>
           <li>
             <a routerLink="/login" routerLinkActive="active">Login</a>
           </li>
         </ul>
       </ng-template>
-      <ng-template #logout>
+      <ng-template #userLoggedIn>
         <ul>
+          <li>
+            <a routerLink="/home" routerLinkActive="active" (click)="Logout()">Logout</a>
+          </li>
           <li>
             <a routerLink="/profile" routerLinkActive="active">Juan</a>
           </li>

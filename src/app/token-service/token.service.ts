@@ -10,12 +10,22 @@ export class TokenService {
   private store(content:Object) {
     localStorage.setItem(this.tokenKey, JSON.stringify(content));
     this.loggedIn = true;
+    //DEBUG
+    console.log('In private store');
   }
 
+  //Locally retrieve the token and return it
   private retrieve() {
     let storedToken:string = localStorage.getItem(this.tokenKey);
     if(!storedToken) throw 'no token found';
     return storedToken;
+  }
+
+  //DEBUG: not removing token properly!!!!
+  private delete() {
+    let storedToken:string = localStorage.getItem(this.tokenKey)
+    localStorage.removeItem(storedToken);
+    this.loggedIn = false;
   }
 
   //Function to check if logged in or not
@@ -26,8 +36,8 @@ export class TokenService {
   //Token Setter
   public storeToke(token:Object) {
     try {
-      if (token === undefined) console.log('token undefined');
-      else this.store(token);
+      if (token) this.store(token);
+      else console.log('token to store is undefined');
     }
     catch(err) {
       console.error(err);
@@ -46,6 +56,16 @@ export class TokenService {
       console.error(err);
     }
     return token;
+  }
+
+  //Token Remover
+  public deleteToke() {
+    try {
+      this.delete();
+    }
+    catch(err) {
+      console.error(err);
+    }
   }
 
 }
