@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { TokenService } from './token-service/token.service';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { DevelopersComponent } from './developers/developers.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
@@ -29,7 +30,7 @@ import { ProductUploadComponent } from './product-upload/product-upload.componen
     BrowserModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [TokenService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

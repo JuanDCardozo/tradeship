@@ -12,7 +12,32 @@
 </ul>
 </header>
 
-<nav ng-if="loggedOut" id = "navbar">
+<nav id="navbar">
+  <div *ngIf="loggedIn; then login else logout"></div>
+      <ng-template #login>
+        <ul>
+          <li>
+            <a routerLink="/login" routerLinkActive="active">Login</a>
+          </li>
+        </ul>
+      </ng-template>
+      <ng-template #logout>
+        <ul>
+          <li>
+            <a routerLink="/profile" routerLinkActive="active">Juan</a>
+          </li>
+          <li>
+            MyAccount
+          </li>
+          <li>
+            Offers
+          </li>
+        </ul>
+      </ng-template>
+</nav>
+
+
+<!-- <nav ng-if="loggedOut" id = "navbar">
   <ul>
     <li>
       <a routerLink="/login" routerLinkActive="active">Login</a>
@@ -31,7 +56,7 @@
       Offers
     </li>
   </ul>
-</nav>
+</nav> -->
 
 <!-- *********** Canvas: Contains Components ************* -->
 <main>
