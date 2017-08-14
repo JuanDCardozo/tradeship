@@ -21,7 +21,6 @@ export class TokenService {
     return storedToken;
   }
 
-  //DEBUG: not removing token properly!!!!
   private delete() {
     // let storedToken:string = localStorage.getItem(this.tokenKey)
     // localStorage.removeItem(storedToken);
