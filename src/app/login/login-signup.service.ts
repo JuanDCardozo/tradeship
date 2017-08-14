@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 export class LoginSignupService {
 
   public redirectFacebook(){
-    window.location.href='"http://localhost:8080/auth/facebook/"'
+    window.location.href="http://localhost:8080/auth/facebook/"
   }
 
   public redirectGoogle(){

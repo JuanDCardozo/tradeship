@@ -7,6 +7,7 @@ import { LoginSignupService} from './login-signup.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  showSignUp:boolean = true;
 
   constructor(private loginSignupService:LoginSignupService) { }
 
