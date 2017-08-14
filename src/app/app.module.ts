@@ -23,7 +23,7 @@ import { ProductUploadComponent } from './product-upload/product-upload.componen
     DevelopersComponent,
     ProductDetailsComponent,
     ProfileComponent,
-    ProductUploadComponent
+    ProductUploadComponent,
   ],
   imports: [
     HttpModule,
