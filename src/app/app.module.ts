@@ -12,6 +12,7 @@ import { DevelopersComponent } from './developers/developers.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProductUploadComponent } from './product-upload/product-upload.component';
+import { LoginSignupService } from './login/login-signup.service';
 
 
 @NgModule({
@@ -30,7 +31,10 @@ import { ProductUploadComponent } from './product-upload/product-upload.componen
     BrowserModule,
     AppRoutingModule,
   ],
-  providers: [TokenService],
+  providers: [
+    TokenService,
+    LoginSignupService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
