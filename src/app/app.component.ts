@@ -13,7 +13,7 @@ export class AppComponent{
   constructor (private activatedRoute:ActivatedRoute,
     private tokenService: TokenService) {}
 
-  loggedIn:boolean;
+  loggedIn:boolean = false;
 
   ngOnInit(){
     //Get token from query string
@@ -26,7 +26,7 @@ export class AppComponent{
       // let testToken = this.tokenService.retrieveToke();
       //DEBUG
       // console.log('testToken: '+ testToken);
-      console.log('LoggedIn: '+ this.loggedIn);
+      // console.log('LoggedIn: '+ this.loggedIn);
     })
   }
 
@@ -34,6 +34,11 @@ export class AppComponent{
   ngDoCheck() {
     //Check if loggedIn
     this.loggedIn = this.tokenService.isLoggedIn();
+    console.log('LoggedIn: '+ this.loggedIn);
+    //Check if token deleted
+    let testToken = this.tokenService.retrieveToke();
+    console.log('testToken: '+ testToken);
+
   }
 
   Logout(){
