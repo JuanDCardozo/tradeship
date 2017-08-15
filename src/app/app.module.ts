@@ -13,7 +13,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { ProfileComponent } from './profile/profile.component';
 import { ProductUploadComponent } from './product-upload/product-upload.component';
 import { LoginSignupService } from './login/login-signup.service';
-
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,6 +30,7 @@ import { LoginSignupService } from './login/login-signup.service';
     HttpModule,
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
   ],
   providers: [
     TokenService,

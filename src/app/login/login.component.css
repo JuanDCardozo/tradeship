@@ -25,7 +25,8 @@ body {
  -webkit-box-shadow: 0px 1px 8px #BEBEBE;
  -moz-box-shadow: 0px 1px 8px #BEBEBE; }
  .form-wrap .tabs {
-   overflow: hidden; }
+   overflow: hidden;
+   cursor: pointer; }
    .form-wrap .tabs h3 {
      float: left;
      width: 50%; }

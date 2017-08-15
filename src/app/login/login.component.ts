@@ -8,8 +8,11 @@ import { LoginSignupService} from './login-signup.service';
 })
 export class LoginComponent implements OnInit {
   showSignUp:boolean = true;
+  isAvailable:boolean;
 
-  constructor(private loginSignupService:LoginSignupService) { }
+  constructor(private loginSignupService:LoginSignupService) {
+    this.isAvailable = true;
+  }
 
   ngOnInit() {
   }
@@ -34,25 +37,25 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  public login(email, password){
-    console.log("Redirecting to Google for Auth");
+  public login(value: any){
     try {
-      this.loginSignupService.postLogin(email,password);
+      console.log(value)
+      // this.loginSignupService.postLogin(email,password);
     }
     catch(err) {
       console.log(err)
     }
   }
 
-  public signup(username,email, password){
-    console.log("Redirecting to Google for Auth");
+  public signup(value: any){
     try {
-      this.loginSignupService.postSignup(username,email, password);
+        console.log(value);
+        console.log("In signup");
+        this.loginSignupService.postSignup(value.username, value.email, value.password);
     }
     catch(err) {
       console.log(err)
     }
   }
-
 
 }
