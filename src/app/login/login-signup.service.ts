@@ -27,7 +27,7 @@ export class LoginSignupService {
     try {
       console.log(params)
       // this.http.post("http://localhost:8080/signup",params);
-      this.http.post("http://localhost:8080/signup", params).subscribe(res => console.log(res.text()));
+      this.http.post("http://localhost:8080/signup",{password,email}).subscribe(res => console.log(res.text()));
     }
     catch(err){
       console.log(err);
