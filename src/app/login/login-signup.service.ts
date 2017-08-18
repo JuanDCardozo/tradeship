@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http'
+import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 @Injectable()
 export class LoginSignupService {
   private apiUrl = 'http://localhost:8080'; // URL to web api
 
-  constructor(private http: Http) {}
+  constructor(private http: Http,
+    private router: Router) {}
 
   public redirectFacebook(){
     window.location.href="http://localhost:8080/auth/facebook/"
@@ -33,7 +35,7 @@ export class LoginSignupService {
     try {
       console.log(params)
       // this.http.post("http://localhost:8080/signup",params);
-      this.http.post("http://localhost:8080/signup",{password,email}).subscribe(res => console.log(res.text()));
+      this.http.post("http://localhost:8080/signup",{password,email}).subscribe(res => window.location.href = res.text());
     }
     catch(err){
       console.log(err);
