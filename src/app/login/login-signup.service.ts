@@ -16,9 +16,15 @@ export class LoginSignupService {
   }
 
   public postLogin(email, password){
-  var params = JSON.stringify({ email:email,password:password});
-
-  // this.http.post(this.apiUrl+"/login",params).catch(this.handleError);
+    console.log("In postLogin")
+    var params = JSON.stringify({email:email,password:password});
+    try {
+      console.log(params)
+      this.http.post("http://localhost:8080/login",{password, email}).subscribe(res => console.log(res.text()));
+    }
+    catch(err){
+      console.log(err);
+    }
   }
 
   public postSignup(username, email, password){

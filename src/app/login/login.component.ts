@@ -40,7 +40,8 @@ export class LoginComponent implements OnInit {
   public login(value: any){
     try {
       console.log(value)
-      // this.loginSignupService.postLogin(email,password);
+      console.log("In login");
+      this.loginSignupService.postLogin(value.username_email,value.password);
     }
     catch(err) {
       console.log(err)
