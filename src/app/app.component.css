@@ -1,3 +1,4 @@
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -54,4 +55,5 @@ footer {
 #navbar li {
   float:right;
   margin:10px;
+  color:white;
 }

@@ -30,11 +30,7 @@ export class LoginSignupService {
   }
 
   public postLogin(email, password) {
-    console.log("In postLogin")
-    var params = JSON.stringify({
-      email: email,
-      password: password
-    });
+  
     try {
       this.http.post("http://localhost:8080/login", {
         password,

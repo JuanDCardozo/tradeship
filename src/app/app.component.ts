@@ -1,32 +1,41 @@
-import { OnInit, DoCheck, Component } from '@angular/core';
-import {Http, Response} from '@angular/http';
-import {Router,ActivatedRoute, Params} from '@angular/router';
-import { TokenService } from './token-service/token.service';
+import {
+  OnInit,
+  DoCheck,
+  Component
+} from '@angular/core';
+import {
+  Http,
+  Response
+} from '@angular/http';
+import {
+  Router,
+  ActivatedRoute,
+  Params
+} from '@angular/router';
+import {
+  TokenService
+} from './token-service/token.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent{
+export class AppComponent {
 
-  constructor (private activatedRoute:ActivatedRoute,
+  constructor(private activatedRoute: ActivatedRoute,
     private tokenService: TokenService) {}
 
-  loggedIn:boolean = false;
+  loggedIn: boolean = false;
 
-  ngOnInit(){
+  ngOnInit() {
     //Get token from query string
-    this.activatedRoute.queryParams.subscribe((params)=>{
+    this.activatedRoute.queryParams.subscribe((params) => {
       let accessToken = params['accessToken'];
-      console.log('accessToken: '+ accessToken);
+      console.log('accessToken: ' + accessToken);
       //Store the token
       this.tokenService.storeToke(accessToken);
-      //DEBUG
-      // let testToken = this.tokenService.retrieveToke();
-      //DEBUG
-      // console.log('testToken: '+ testToken);
-      // console.log('LoggedIn: '+ this.loggedIn);
+
     })
   }
 
@@ -34,19 +43,20 @@ export class AppComponent{
   ngDoCheck() {
     //Check if loggedIn
     this.loggedIn = this.tokenService.isLoggedIn();
-    console.log('LoggedIn: '+ this.loggedIn);
     //Check if token deleted
-    let testToken = this.tokenService.retrieveToke();
-    console.log('testToken: '+ testToken);
+    let token = this.tokenService.retrieveToke();
+
+    if (token != undefined) {
+      //this.profileDataService.getName();
+    }
 
   }
 
-  Logout(){
+  Logout() {
     console.log('Logging out');
     try {
       this.tokenService.deleteToke();
-    }
-    catch(err) {
+    } catch (err) {
       console.log(err)
     }
   }
