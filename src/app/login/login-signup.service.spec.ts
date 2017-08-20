@@ -1,6 +1,11 @@
-import { TestBed, inject } from '@angular/core/testing';
+import {
+  TestBed,
+  inject
+} from '@angular/core/testing';
 
-import { LoginSignupService } from './login-signup.service';
+import {
+  LoginSignupService
+} from './login-signup.service';
 
 describe('LoginSignupService', () => {
   beforeEach(() => {

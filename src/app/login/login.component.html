@@ -1,51 +1,61 @@
-<div class="form-wrap" align = "center">
-		<div class="tabs">
-			<div *ngIf="showSignUp; then userSignUp else userLogin"></div>
-				<ng-template #userSignUp>
-					<h3 class="signup-tab"><a class="active">Sign Up</a></h3>
-					<h3 class="login-tab"> <a (click)="showSignUp=false">Login</a></h3>
-				</ng-template>
-				<ng-template #userLogin>
-					<h3 class="signup-tab"><a (click)="showSignUp=true">Sign Up</a></h3>
-					<h3 class="login-tab"> <a class="active">Login</a></h3>
-				</ng-template>
-		</div><!--.tabs-->
+<div class="form-wrap" align="center">
+	<div class="tabs">
+		<div *ngIf="showSignUp; then userSignUp else userLogin"></div>
+		<ng-template #userSignUp>
+			<h3 class="signup-tab"><a class="active">Sign Up</a></h3>
+			<h3 class="login-tab"> <a (click)="showSignUp=false">Login</a></h3>
+		</ng-template>
+		<ng-template #userLogin>
+			<h3 class="signup-tab"><a (click)="showSignUp=true">Sign Up</a></h3>
+			<h3 class="login-tab"> <a class="active">Login</a></h3>
+		</ng-template>
+	</div>
+	<!--.tabs-->
 
-			<div class="tabs-content">
-					<div id="signup-tab-content" *ngIf="showSignUp" class="active">
-						<form #form="ngForm" class="signup-form" (ngSubmit)="signup(form.value)">
-							<input type="email" name="email" class="input" id="user_email" autocomplete="off" placeholder="Email" ngModel>
-							<input type="text" name="username" class="input" id="user_name" autocomplete="off" placeholder="Username" ngModel>
-							<input type="password" name="password" class="input" id="user_pass" autocomplete="off" placeholder="Password" ngModel>
-							<input type="submit" class="button" value="Sign Up">
-						</form><!--.login-form-->
-						<div>
-								<button class="loginBtn loginBtn--facebook"(click)="facebook()">Login with Facebook</button>
-								<button class="loginBtn loginBtn--google" (click)="google()">Login with Google</button>
-						</div>
-						<div class="help-text">
-							<p>By signing up, you agree to our</p>
-							<p><a href="#">Terms of service</a></p>
-						</div><!--.help-text-->
-					</div><!--.signup-tab-content-->
-			</div><!--.tabs-content-->
+	<div class="tabs-content">
+		<div id="signup-tab-content" *ngIf="showSignUp" class="active">
+			<form #form="ngForm" class="signup-form" (ngSubmit)="signup(form.value)">
+				<input type="email" name="email" class="input" id="user_email" autocomplete="off" placeholder="Email" ngModel>
+				<input type="text" name="username" class="input" id="user_name" autocomplete="off" placeholder="Username" ngModel>
+				<input type="password" name="password" class="input" id="user_pass" autocomplete="off" placeholder="Password" ngModel>
+				<input type="submit" class="button" value="Sign Up">
+			</form>
+			<!--.login-form-->
+			<div>
+				<button class="loginBtn loginBtn--facebook" (click)="facebook()">Login with Facebook</button>
+				<button class="loginBtn loginBtn--google" (click)="google()">Login with Google</button>
+			</div>
+			<div class="help-text">
+				<p>By signing up, you agree to our</p>
+				<p><a href="#">Terms of service</a></p>
+			</div>
+			<!--.help-text-->
+		</div>
+		<!--.signup-tab-content-->
+	</div>
+	<!--.tabs-content-->
 
-			<div class="tabs-content">
-				<div id="login-tab-content" *ngIf="!showSignUp" class="active">
-					<form #form="ngForm" class="login-form" (ngSubmit)="login(form.value)">
-						<input type="text" name="username_email" class="input" id="user_login" autocomplete="off" placeholder="Email or Username" ngModel>
-						<input type="password" name="password" class="input" id="user_pass" autocomplete="off" placeholder="Password" ngModel>
-						<input type="checkbox" name="checkbox" [checked]="isAvailable" (change)="isAvailable = $event.target.checked" class="checkbox" id="remember_me" ngModel>
-						<label for="remember_me">Remember me</label>
-						<input type="submit" class="button" value="Login">
-					</form><!--.login-form-->
-						<div>
-								<button class="loginBtn loginBtn--facebook"(click)="facebook()" >Login with Facebook</button>
-								<button class="loginBtn loginBtn--google" (click)="google()">Login with Google</button>
-						</div>
-					<div class="help-text">
-						<p><a href="#">Forget your password?</a></p>
-					</div><!--.help-text-->
-				</div><!--.login-tab-content-->
-		</div><!--.tabs-content-->
-	</div><!--.form-wrap-->
+	<div class="tabs-content">
+		<div id="login-tab-content" *ngIf="!showSignUp" class="active">
+			<form #form="ngForm" class="login-form" (ngSubmit)="login(form.value)">
+				<input type="text" name="username_email" class="input" id="user_login" autocomplete="off" placeholder="Email or Username" ngModel>
+				<input type="password" name="password" class="input" id="user_pass" autocomplete="off" placeholder="Password" ngModel>
+				<input type="checkbox" name="checkbox" [checked]="isAvailable" (change)="isAvailable = $event.target.checked" class="checkbox" id="remember_me" ngModel>
+				<label for="remember_me">Remember me</label>
+				<input type="submit" class="button" value="Login">
+			</form>
+			<!--.login-form-->
+			<div>
+				<button class="loginBtn loginBtn--facebook" (click)="facebook()">Login with Facebook</button>
+				<button class="loginBtn loginBtn--google" (click)="google()">Login with Google</button>
+			</div>
+			<div class="help-text">
+				<p><a href="#">Forget your password?</a></p>
+			</div>
+			<!--.help-text-->
+		</div>
+		<!--.login-tab-content-->
+	</div>
+	<!--.tabs-content-->
+</div>
+<!--.form-wrap-->
