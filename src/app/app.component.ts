@@ -15,6 +15,9 @@ import {
 import {
   TokenService
 } from './token-service/token.service';
+import {
+  ProfileDataService
+} from './profileData-service/profile-data.service';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +27,8 @@ import {
 export class AppComponent {
 
   constructor(private activatedRoute: ActivatedRoute,
-    private tokenService: TokenService) {}
+    private tokenService: TokenService,
+    private profileDataService: ProfileDataService) {}
 
   loggedIn: boolean = false;
 
@@ -46,8 +50,8 @@ export class AppComponent {
     //Check if token deleted
     let token = this.tokenService.retrieveToke();
 
-    if (token != undefined) {
-      //this.profileDataService.getName();
+    if (token) {
+      this.profileDataService.getName();
     }
 
   }
