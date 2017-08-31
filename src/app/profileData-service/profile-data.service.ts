@@ -28,14 +28,13 @@ export class ProfileDataService {
       console.log('In getProfileData');
       var headers = new Headers();
       let accessToken = this.tokenService.retrieveToke();
-      headers.append('Authorization', accessToken );
-      console.log('headers: '+headers.get('Authorization'));
+      headers.append('Authorization', accessToken);
+      console.log('headers: ' + headers.get('Authorization'));
       this.http.get("http://localhost:8080/profile", {
         headers: headers
-      })
+      }).subscribe(res => console.log(res.text()));
 
-      // this.http.post("http://localhost:8080/profile", {} , {}
-      // token ).map((res) => res.json()).subscribe(profileData => this.profileData = profileData);
+      // this.http.get("http://localhost:8080/profile")
     } catch (err) {
       console.log(err);
     }
