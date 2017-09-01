@@ -14,35 +14,77 @@ import {
   TokenService
 } from '../token-service/token.service';
 
+
 @Injectable()
 export class ProfileDataService {
-
-  private profileData = undefined;
 
   constructor(private http: Http,
     private tokenService: TokenService) {}
 
-  private getProfileData() {
+  //************************************************************
+  // Private
+  //************************************************************
+  private hasProfileData: boolean = false;
+  private key: string = 'profileData';
+
+  private httpGetProfileData() {
     try {
-      //DEBUG
-      console.log('In getProfileData');
       var headers = new Headers();
       let accessToken = this.tokenService.retrieveToke();
       headers.append('Authorization', accessToken);
-      console.log('headers: ' + headers.get('Authorization'));
       this.http.get("http://localhost:8080/profile", {
         headers: headers
-      }).subscribe(res => console.log(res.text()));
+      }).subscribe(res => this.store(res));
 
-      // this.http.get("http://localhost:8080/profile")
     } catch (err) {
       console.log(err);
     }
   }
 
+  //Locally store the token and set loggedIn to true
+  private store(content: Object) {
+    localStorage.setItem(this.key, JSON.stringify(content));
+    this.hasProfileData = true;
+  }
+
+  //Locally retrieve the token and return it
+  private retrieve() {
+    let profileData: string = localStorage.getItem(this.key);
+    if (!profileData) throw 'no profile data found';
+    return JSON.stringify(profileData);
+  }
+
+  private delete() {
+    localStorage.clear();
+    this.hasProfileData = false;
+  }
+
+  //************************************************************
+  // Public
+  //************************************************************
+
+  public requestProfileData() {
+    this.httpGetProfileData();
+  }
+  //Function to check if logged in or not
+  public isStored() {
+    return this.hasProfileData;
+  }
+
+  //Token Getter
   public getName() {
-    this.getProfileData();
-    // return this.profileData.facebook.name;
+    let profileData = this.retrieve();
+    console.log(profileData);
+    return profileData;
+  }
+
+  //Token Remover
+  public deleteProfileData() {
+    try {
+      this.delete();
+    } catch (err) {
+      console.error(err);
+    }
   }
 
 }

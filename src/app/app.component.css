@@ -1,59 +1,133 @@
+/* Makeshift CSS Reset */
 
-ul {
-    list-style-type: none;
+/* Tell the browser to render HTML 5 elements as block */
+header, main, footer, aside, nav, article {
+    display: block;
+}
+
+h2 {
+    font-size: 28px;
+
+}
+
+h3 {
+    font-size: 18px;
+}
+
+#mainNavbar {
+    display:block;
+    width: 100%;
+    height: 30px;
+    background: #9B1D04;
+    border-radius:1.5px;
+}
+
+#mainNavbar ul {
     margin: 0;
-    padding: 0;
+    width: 940px;
+    list-style: none;
 }
 
-header {
-  display: inline-block;
-  background-color: #242831;
+#mainNavbar ul li {
+    float: right;
+}
+
+#mainNavbar ul li a {
+  display: block;
+  margin-right: 20px;
+  width: 140px;
+  font-size: 14px;
+  color: #fff;
+}
+
+#mainNavbar ul li a:hover {
+  color: #fff;
+}
+
+#mainContent {
+  display:block;
+  position:relative;
+  background: #F6FFFF;
   width:100%;
+  min-height:calc(100% - 360px);
+  border-radius:3px;
+  }
+
+
+#mainFooter {
+  display:block;
+  position:relative;
+  height:200px;
+  width:100%;
+
+   background:#242831;
+   border-top: solid 30px;
+   border-top-color:#9B1D04;
+   border-radius:3px;
+}
+#mainFooter nav {
+padding-top:45px;
+padding-right:5%;
+padding-left:25%;
+
+}
+
+
+#mainFooter section{
+ display:inline-block;
+ position: relative;
+ width: 25%;
+}
+#mainFooter li {
+display:block;
+}
+
+#logo{
+  position: relative;
+  height:100%;
+  width:25%;
+  display:inline-block;
+  float:left;
+  overflow:hidden;
+}
+
+#logo img{
   height:100px;
-  float:left;
+  width: 300px;
 }
 
-nav {
-  display: inline-block;
-  background-color: #242831;
+#searchbarDiv {
+  position: relative;
+  display:inline-block;
+  height:100px;
+  width:75%;
+}
+
+#search-bar{
+  width:60%;
+  height:30%;
+  margin-top:35px;
+  border:0px solid #dbdbdb;
+  border-radius:6px;
+}
+
+header form{
+  background:#242831;
   width:100%;
-  float:right;
-}
-
-main {
-  background-color: #DCDBCE;
-  display: inline-block;
-  margin-bottom: 20px;
-}
-
-footer {
-  display: inline-block;
-  background-color: #242831;
-  width:100%;
+  height:100%
 }
 
 
-#logo {
-  float:left;
-
+#searchbarDiv button {
+                position:relative;
+                padding:6px 15px;
+  border-radius:6px;
+                left:-10px;
+                border:2px solid #9B1D04;
+                background-color:#9B1D04;
+                color:#fafafa;
 }
-#logo img {
-  height: 40px;
-  width: 120px;
-  margin:5px;
-}
-
-#search-bar {
-  width:600px;
-  height: 40px;
-}
-#search-bar-container {
-  float:center;
-  margin:15px;
-}
-
-#navbar li {
-  float:right;
-  margin:10px;
-  color:white;
+#searchbarDiv button:hover  {
+                background-color:#fafafa;
+                color:#207cca;
 }

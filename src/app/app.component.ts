@@ -50,20 +50,16 @@ export class AppComponent {
     //Check if token deleted
     let token = this.tokenService.retrieveToke();
 
-    // if (token) {
-    //   this.profileDataService.getName();
-    // }
-
   }
 
   Logout() {
-    this.profileDataService.getName();
-    // console.log('Logging out');
-    // try {
-    //   this.tokenService.deleteToke();
-    // } catch (err) {
-    //   console.log(err)
-    // }
+    //this.profileDataService.getName();
+    console.log('Logging out');
+    try {
+      this.tokenService.deleteToke();
+    } catch (err) {
+      console.log(err)
+    }
   }
 
 }
