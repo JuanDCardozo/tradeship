@@ -3,9 +3,6 @@
 ## The server-side repository: 
 https://github.com/JuanDCardozo/tradeship-api
 
-## Live Demo: 
-https://tradeshipp-client.herokuapp.com 
-
 ## The Repository:
 This repository contains the client-side of the Tradeshipp service. Tradeshipp is an ongoing project to create an E-commerce bartering systems that allows users to exchange goods and/or money to for other goods and/or money.
 
